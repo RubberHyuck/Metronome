@@ -21,8 +21,8 @@
   
   <form oninput="result.value=tempo.value">
       <input type="range" id="tempo" name="tempo" min="40" max="208" orient="vertical">
-      <button id="toggle">Play/Stop</button>
-      <output name="result" for="tempo">60</output>
+      <button id="toggle" onclick="Toggle(tempo.value);">Play/Stop</button>
+      <output name="result" for="tempo"></output>
   </form>
 </body>
 
