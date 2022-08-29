@@ -25,6 +25,7 @@ window.onload = (event) => {
   }
   
   let successButton = document.querySelector("#success");
+  
   successButton.addEventListener("click", function() {
     playFile('./assets/click.mp3');
   });
