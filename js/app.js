@@ -16,10 +16,14 @@ window.onload = (event) => {
       // Turn it from mp3/aac/whatever into raw audio data
       .then(arrayBuffer => context.decodeAudioData(arrayBuffer))
       .then(audioBuffer => {
-        // Now we're ready to play!
+        // Create a source:
+        // This represents a playback head.
         const soundSource = context.createBufferSource();
+        // Give it the audio data we loaded:
         soundSource.buffer = audioBuffer;
+        // Plug it into the output:
         soundSource.connect(context.destination);
+        // Now we're ready to play!
         soundSource.start();
       });
   }
