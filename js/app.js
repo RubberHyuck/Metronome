@@ -2,7 +2,7 @@
 const context = new window.AudioContext();
 let clickTone = context.createBufferSource();
 let clickBuffer = {};
-let clockSpring;
+let lastTick = 0;
 
 window.onload = (event) => {
   
@@ -45,18 +45,38 @@ function playSound() {
 
 function tempoClock(tempo = 90) {
   console.log(tempo);
-  let delay = 60000/tempo;
-  if (!clockSpring) {
-      let clockSpring = setInterval(function() {
-      playSound();
-    }, delay);
-  }
+  
+  setTimeout(step(tempo), delay);
 }
-
+let clockSpring = false;
 function toggle(tempo = 90) {
   if (!clockSpring) {
     tempoClock(tempo);
+    let pendulum = document.getElementById('pendulum');
+    let swingDuration = 60 / tempo;
+    pendulum.style['animationDuration'] = swingDuration + 's';
   } else {
     clearInterval(clockSpring);
+    clockSpring = false;
   }
+}
+
+function step(tempo = 90) {
+  let gap = 0;
+  if (lastTick > 0) {
+    let timePassed = Date.now() - lastTick;
+    gap = timePassed - delay;
+  }
+  
+  delay = 60000/tempo;
+  if (gap > 0) {
+    delay -= gap;
+    gap = 0;
+    console.log('delay: ' + delay);
+  }
+
+  //console.log(i++);
+  lastTick = Date.now();
+  playSound();
+  //setTimeout(step(), delay);
 }

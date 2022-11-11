@@ -2,4 +2,21 @@
     width: 320px;
     height:240px;
     border-right:solid;
+
+    animation-duration: 1s;
+    animation-name: swing;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    transform-origin: bottom right;
 }
+
+@keyframes swing {
+    from {
+      transform: rotate(-29deg);
+    }
+  
+    to {
+      transform: rotate(29deg);
+    }
+  }
