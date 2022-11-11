@@ -41,17 +41,14 @@ function playSound() {
   localTone.connect(context.destination);
   // Now we're ready to play!
   localTone.start();
+  console.log('boop');
 }
 
-function tempoClock(tempo = 90) {
-  console.log(tempo);
-  
-  setTimeout(step(tempo), delay);
-}
 let clockSpring = false;
 function toggle(tempo = 90) {
   if (!clockSpring) {
-    tempoClock(tempo);
+    let delay = 60000/tempo;
+    setInterval(function(){playSound();}, delay);
     let pendulum = document.getElementById('pendulum');
     let swingDuration = 60 / tempo;
     pendulum.style['animationDuration'] = swingDuration + 's';
@@ -77,6 +74,6 @@ function step(tempo = 90) {
 
   //console.log(i++);
   lastTick = Date.now();
-  playSound();
+  //playSound();
   //setTimeout(step(), delay);
 }
