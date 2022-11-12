@@ -41,20 +41,21 @@ function playSound() {
   localTone.connect(context.destination);
   // Now we're ready to play!
   localTone.start();
-  console.log('boop');
 }
 
 let clockSpring = false;
 function toggle(tempo = 90) {
-  if (!clockSpring) {
+  console.log(clockSpring);
+  if (typeof clockHandle == 'undefined' || !clockHandle) {
     let delay = 60000/tempo;
-    setInterval(function(){playSound();}, delay);
+    clockHandle = setInterval(function(){playSound();}, delay);
     let pendulum = document.getElementById('pendulum');
     let swingDuration = 60 / tempo;
     pendulum.style['animationDuration'] = swingDuration + 's';
   } else {
-    clearInterval(clockSpring);
-    clockSpring = false;
+    clearInterval(clockHandle);
+    clockHandle = false;
+    console.log('off');
   }
 }
 
