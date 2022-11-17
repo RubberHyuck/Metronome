@@ -3,14 +3,21 @@
   height:240px;
   border-right:solid;
 
-  .unlocked {
-    animation-duration: 1s;
-    animation-name: swing;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease-in-out;
-    transform-origin: bottom right;
-  }
+}
+
+#pendulum.locked {
+  border-color: navy;
+}
+
+#pendulum.unlocked {
+  border-color: black;
+
+  animation-duration: 1s;
+  animation-name: swing;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  transform-origin: bottom right;
 }
 
 @keyframes swing {
