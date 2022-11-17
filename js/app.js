@@ -44,7 +44,22 @@ function playSound() {
 }
 
 let clockSpring = false;
-function toggle(tempo = 90) {
+function go(tempo = 90) {
+  console.log(clockSpring);
+  if (typeof clockHandle == 'undefined' || !clockHandle) {
+    let delay = 60000/tempo;
+    clockHandle = setInterval(function(){playSound();}, delay);
+    let pendulum = document.getElementById('pendulum');
+    let swingDuration = 60 / tempo;
+    pendulum.style['animationDuration'] = swingDuration + 's';
+  } else {
+    clearInterval(clockHandle);
+    clockHandle = false;
+    console.log('off');
+  }
+}
+
+function stop(tempo = 90) {
   console.log(clockSpring);
   if (typeof clockHandle == 'undefined' || !clockHandle) {
     let delay = 60000/tempo;
