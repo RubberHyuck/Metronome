@@ -51,20 +51,27 @@ function playSound() {
 
 let clockSpring = false;
 function go(tempo = 90) {
-  //if (typeof clockHandle == 'undefined' || !clockHandle)
-  let delay = 60000/tempo;
-  clockSpring = setInterval(function(){playSound();}, delay);
+  
   let pendulum = document.getElementById('pendulum');
-  let swingDuration = 60 / tempo;
-  pendulum.style['animationDuration'] = swingDuration + 's';
+  if ( pendulum.classList.contains('locked') ) {
+    pendulum.classList.remove('locked');
+    pendulum.classList.add('unlocked');
 
-  console.log(clockSpring);
+    let delay = 60000/tempo;
+    clockSpring = setInterval(function(){playSound();}, delay);
+    
+    let swingDuration = 60 / tempo;
+    pendulum.style['animationDuration'] = swingDuration + 's';
+  }
 }
 
 function stop(tempo = 90) {
-  clearInterval(clockSpring);
+  if ( pendulum.classList.contains('unlocked') ) {
+    pendulum.classList.remove('unlocked');
+    pendulum.classList.add('locked');
 
-  console.log(clockSpring);
+    clearInterval(clockSpring);
+  }
 }
 
 function step(tempo = 90) {
