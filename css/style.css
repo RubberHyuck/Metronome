@@ -10,7 +10,7 @@
 }
 
 #pendulum.unlocked {
-  border-color: black;
+  border-color: orange;
 
   animation-duration: 1s;
   animation-name: swing;

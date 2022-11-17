@@ -11,7 +11,13 @@ window.onload = (event) => {
   let goButton = document.querySelector("#go");  
   goButton.addEventListener("click", function() {
     let tempoSlider = document.querySelector("#tempo"); 
-    toggle(tempoSlider.value);
+    go(tempoSlider.value);
+  });
+
+  let stopButton = document.querySelector("#stop");  
+  stopButton.addEventListener("click", function() {
+    let tempoSlider = document.querySelector("#tempo"); 
+    stop(tempoSlider.value);
   });
 
 };
