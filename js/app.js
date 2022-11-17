@@ -8,8 +8,8 @@ window.onload = (event) => {
   
   loadFile('./assets/click.mp3');
 
-  let toggleButton = document.querySelector("#toggle");  
-  toggleButton.addEventListener("click", function() {
+  let goButton = document.querySelector("#go");  
+  goButton.addEventListener("click", function() {
     let tempoSlider = document.querySelector("#tempo"); 
     toggle(tempoSlider.value);
   });
@@ -57,7 +57,7 @@ function go(tempo = 90) {
 
 function stop(tempo = 90) {
   clearInterval(clockSpring);
-  
+
   console.log(clockSpring);
 }
 
