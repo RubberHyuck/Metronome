@@ -45,33 +45,20 @@ function playSound() {
 
 let clockSpring = false;
 function go(tempo = 90) {
+  //if (typeof clockHandle == 'undefined' || !clockHandle)
+  let delay = 60000/tempo;
+  clockSpring = setInterval(function(){playSound();}, delay);
+  let pendulum = document.getElementById('pendulum');
+  let swingDuration = 60 / tempo;
+  pendulum.style['animationDuration'] = swingDuration + 's';
+
   console.log(clockSpring);
-  if (typeof clockHandle == 'undefined' || !clockHandle) {
-    let delay = 60000/tempo;
-    clockHandle = setInterval(function(){playSound();}, delay);
-    let pendulum = document.getElementById('pendulum');
-    let swingDuration = 60 / tempo;
-    pendulum.style['animationDuration'] = swingDuration + 's';
-  } else {
-    clearInterval(clockHandle);
-    clockHandle = false;
-    console.log('off');
-  }
 }
 
 function stop(tempo = 90) {
+  clearInterval(clockSpring);
+  
   console.log(clockSpring);
-  if (typeof clockHandle == 'undefined' || !clockHandle) {
-    let delay = 60000/tempo;
-    clockHandle = setInterval(function(){playSound();}, delay);
-    let pendulum = document.getElementById('pendulum');
-    let swingDuration = 60 / tempo;
-    pendulum.style['animationDuration'] = swingDuration + 's';
-  } else {
-    clearInterval(clockHandle);
-    clockHandle = false;
-    console.log('off');
-  }
 }
 
 function step(tempo = 90) {
