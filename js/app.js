@@ -10,13 +10,15 @@ window.onload = (event) => {
 
   let goButton = document.querySelector("#go");  
   goButton.addEventListener("click", function() {
-    let tempoSlider = document.querySelector("#tempo"); 
+    //#pendulum isn't a descriptive name, needs improvement
+    let tempoSlider = document.querySelector("#pendulum"); 
     go(tempoSlider.value);
   });
 
   let stopButton = document.querySelector("#stop");  
   stopButton.addEventListener("click", function() {
-    let tempoSlider = document.querySelector("#tempo"); 
+    //#pendulum isn't a descriptive name, needs improvement
+    let tempoSlider = document.querySelector("#pendulum"); 
     stop(tempoSlider.value);
   });
 
