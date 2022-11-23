@@ -2,7 +2,7 @@
   width: 320px;
   height:240px;
   border-right:solid;
-
+  margin-left: -140px;
 }
 
 #pendulum.locked {
@@ -21,11 +21,23 @@
 }
 
 @keyframes swing {
-    from {
-      transform: rotate(-29deg);
-    }
-  
-    to {
-      transform: rotate(29deg);
-    }
+  from {
+    transform: rotate(-29deg);
   }
+
+  to {
+    transform: rotate(29deg);
+  }
+}
+
+#go {
+  margin-left: 140px;
+  position: relative;
+  z-index: 1;
+}
+
+#stop {
+  margin-left: -147px;
+  position: relative;
+  z-index: 1;
+}
