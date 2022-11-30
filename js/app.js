@@ -59,15 +59,13 @@ function go(tempo = 90) {
     pendulum.classList.remove('locked');
     pendulum.classList.add('unlocked');
 
-    console.log('Tempo: ' + tempo);
-
+    // Reversing the math and adding 40 so the bottom of the slider
+    // is is max tempo and the top is minimum tempo
     let delay = 60000/(208+40-tempo);
     clockSpring = setInterval(function(){playSound();}, delay);
-    console.log('Delay: ' + delay);
 
     let swingDuration = 60 / ( (208 + 40)-tempo);
     pendulum.style['animationDuration'] = swingDuration + 's';
-    console.log('swingDuration: ' + swingDuration);
   }
 }
 
