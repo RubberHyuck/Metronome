@@ -59,11 +59,15 @@ function go(tempo = 90) {
     pendulum.classList.remove('locked');
     pendulum.classList.add('unlocked');
 
-    let delay = 60000/tempo;
+    console.log('Tempo: ' + tempo);
+
+    let delay = 60000/(208+40-tempo);
     clockSpring = setInterval(function(){playSound();}, delay);
-    
-    let swingDuration = 60 / tempo;
+    console.log('Delay: ' + delay);
+
+    let swingDuration = 60 / ( (208 + 40)-tempo);
     pendulum.style['animationDuration'] = swingDuration + 's';
+    console.log('swingDuration: ' + swingDuration);
   }
 }
 
